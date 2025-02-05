@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n=nums.size();
+        int index=1;
+        for(int i=1;i<n;i++)
+        {
+            if(nums[i]!=nums[i-1])
+            {
+                nums[index]=nums[i];
+                index++;
+            }
+        }
+        return index;
+    }
+};
+
+//index start from 1 because initial value of j is 1 since the first element in the array is always unique and doesn't need to be changed.
