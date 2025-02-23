@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int n = s.length();
+        int ma = 0, c = 0;
+        
+        for (int i = 0; i < n; i++) {
+            if (s[i] != ' ') {
+                c++;
+            } 
+            else if (c > 0) {
+                ma = c; 
+                 c = 0;
+            }
+        }
+        
+        return c > 0 ? c : ma; 
+    }
+};
