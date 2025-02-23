@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(numRows<=1)
+            return s;
+        vector<string>res(numRows,"");
+        int j=0,dir=-1;
+        for(int i=0;i<s.length();i++)
+        {
+            if(j==numRows-1 || j==0) //change direction we reached end.
+               dir*=(-1);
+            res[j] += s[i]; //add to res
+            if(dir==1) //going downward
+               j++;
+            else  //going upward
+              j--;
+        }
+        string ans;
+        for(auto &it:res) 
+           ans+=it;
+        return ans;
+    }
+};
